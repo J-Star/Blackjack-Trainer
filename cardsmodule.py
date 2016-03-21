@@ -102,11 +102,15 @@ class Player():
         return self.hand.get_score() > 21
 
     def update_valid_moves(self):
-        moves = ["Passen"]
         value = self.hand.get_score()
 
-        if self.hand.get_score() >= 21:
-            self.valid_moves = moves
+        if value == 21 && self.hand.get_size() == 2:
+            self.valid_moves = ["Blackjack"]
+        elif value == 21 && self.hand.get_size() > 2:
+            self.valid_moves = ["21"]
+        elif self.is_busted():
+            self.valid_moves = []
+        
 
     def update_best_move(self):
 
