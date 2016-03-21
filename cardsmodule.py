@@ -76,7 +76,10 @@ class Hand(Deck):
         score = sum(card.value for card in self.cards)
         if score <= 10 and num_aces >= 1:
             score += 10
-        return score        
+        return score
+    
+    def get_size(self):
+        return len(self.cards)
         
 
 class Player():
