@@ -98,13 +98,13 @@ class Player():
     def is_busted(self):
         return self.hand.get_score() > 21
 
-    def __update_valid_moves(self):
+    def update_valid_moves(self):
         moves = ["Passen"]
         value = self.hand.get_score()
 
         if value
 
-    def __update_best_move(self):
+    def update_best_move(self):
 
 
 class Dealer(Player):
@@ -139,6 +139,9 @@ class Game():
             #Nieuwe deck als de helft gebruikt is.
             if len(self.deck)< int(52*self.num_decks*0.5):
                 self.deck = Deck(self.num_decks)
+                
+            ## hit
+            Player().hit(self.deck.pop_card())    
 
             
         
