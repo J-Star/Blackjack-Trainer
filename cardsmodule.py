@@ -86,6 +86,7 @@ class Player():
 
     def __init__(self, name, balance=DEFAULT_BALANCE):
         self.hand = Hand()
+        self.blackjack = False
         self.name = name
         self.balance = balance
         self.current_bet = 0
@@ -100,18 +101,24 @@ class Player():
 
     def is_busted(self):
         return self.hand.get_score() > 21
-
+        
+    def update(self):
+        self.update_blackjack()
+        if not self.blackjack:
+            self.update_valid_moves()
+            self.update_best_move()
+        
+    def update_blackjack(self):
+        self.blackjack = value == 21 and self.hand.get_size() == 2
+        
     def update_valid_moves(self):
         value = self.hand.get_score()
 
-        if value == 21 and self.hand.get_size() == 2:
-            self.valid_moves = ["Blackjack"]
-        elif value == 21 and self.hand.get_size() > 2:
-            self.valid_moves = ["21"]
-        elif self.is_busted():
+        if self.is_busted():
             self.valid_moves = []
+        elif value == 21:
+            self.valid_moves = ["Passen"]
         
-
     def update_best_move(self):
 
 
