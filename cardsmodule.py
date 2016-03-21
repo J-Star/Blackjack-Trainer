@@ -116,8 +116,12 @@ class Player():
 
         if self.is_busted():
             self.valid_moves = []
-        elif value == 21:
-            self.valid_moves = ["Passen"]
+            return
+        self.valid_moves = ["Passen", "Kopen"]
+        if self.hand.get_size() == 2 and self.hand.cards[0].value == self.hand.cards[1].value:
+            self.valid_moves.append("Splitsen")
+        if self.hand.get_size() == 2 and self.hand.get_score() in [9, 10, 11]:
+            self.valid_moves.append("Dubbelen")
         
     def update_best_move(self):
 
