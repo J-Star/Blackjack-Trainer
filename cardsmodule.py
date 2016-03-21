@@ -105,7 +105,8 @@ class Player():
         moves = ["Passen"]
         value = self.hand.get_score()
 
-        if value
+        if self.is_busted():
+            return moves
 
     def update_best_move(self):
 
@@ -144,7 +145,7 @@ class Game():
                 self.deck = Deck(self.num_decks)
                 
             ## hit
-            Player().hit(self.deck.pop_card())    
+            Player().hit(self.deck.pop_card())
 
             
         
