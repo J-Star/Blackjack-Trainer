@@ -59,16 +59,6 @@ class Deck():
         for i in range(num):
             hand.add_card(self.pop_card())
 
-##    def deal_hands(self, nHands, nCards): # Exercise 18.3
-##        res = []
-##        for h in range(1,nHands+1):
-##            hand = Hand(str(h))
-##            for c in range(1, nCards+1):
-##                card = self.pop_card()
-##                hand.add_card(card)
-##            res.append(hand)
-##        return res
-
 
 class Hand(Deck):
 
