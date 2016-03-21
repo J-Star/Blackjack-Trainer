@@ -112,8 +112,6 @@ class Player():
         self.blackjack = value == 21 and self.hand.get_size() == 2
         
     def update_valid_moves(self):
-        value = self.hand.get_score()
-
         if self.is_busted():
             self.valid_moves = []
             return
