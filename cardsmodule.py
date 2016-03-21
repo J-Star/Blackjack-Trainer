@@ -105,7 +105,7 @@ class Player():
         moves = ["Passen"]
         value = self.hand.get_score()
 
-        if self.is_busted():
+        if self.hand.get_score() >= 21:
             self.valid_moves = moves
 
     def update_best_move(self):
