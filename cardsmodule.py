@@ -104,9 +104,9 @@ class Player():
     def update_valid_moves(self):
         value = self.hand.get_score()
 
-        if value == 21 && self.hand.get_size() == 2:
+        if value == 21 and self.hand.get_size() == 2:
             self.valid_moves = ["Blackjack"]
-        elif value == 21 && self.hand.get_size() > 2:
+        elif value == 21 and self.hand.get_size() > 2:
             self.valid_moves = ["21"]
         elif self.is_busted():
             self.valid_moves = []
