@@ -106,7 +106,7 @@ class Player():
         value = self.hand.get_score()
 
         if self.is_busted():
-            return moves
+            self.valid_moves = moves
 
     def update_best_move(self):
 
